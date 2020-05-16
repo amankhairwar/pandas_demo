@@ -1,0 +1,94 @@
+http://localhost:8888/notebooks/pandas%20demo.ipynb
+
+import pandas as pd
+data ={'A':[1,2,3,4],
+      'B':[5,6,7,8],
+      'C':[9,10,11,12]}
+#print(data)
+df = pd.DataFrame(data)
+print(df)
+df.rename(columns={'A':'aman','B':'naman','C':'akash'},inplace=True)
+print(df)
+
+df.drop(['aman'],axis=1,inplace=True)
+print(df)
+df.set_index(['naman'],inplace = True)
+print(df)
+print(df.shape)
+print(df)
+Output:
+   A  B   C
+0  1  5   9
+1  2  6  10
+2  3  7  11
+3  4  8  12
+   aman  naman  akash
+0     1      5      9
+1     2      6     10
+2     3      7     11
+3     4      8     12
+   naman  akash
+0      5      9
+1      6     10
+2      7     11
+3      8     12
+       akash
+naman       
+5          9
+6         10
+7         11
+8         12
+(4, 1)
+       akash
+naman       
+5          9
+6         10
+7         11
+
+import pandas as pd
+name =['akhandanand tripathi','ratishankar shukla','maurya ji','gupta ji','sonu','titu','tonu','guddu','bablu','munna']
+age =[61,62,63,64,65,66,67,26,27,28]
+place=['mirzapur','mirzapur','mirzapur','mirzapur','mirzapur','mirzapur','mirzapur','mirzapur','mirzapur','mirzapur']
+adding = list(zip(name,age,place))
+adding
+df =pd.DataFrame(adding,columns=['name','age','city'])
+df
+df.set_index(['name','age','city'],inplace=True)
+df.rename({'Names':'name'},inplace=True)
+df
+OUTPUT:
+name	age	city
+akhandanand tripathi	61	mirzapur
+ratishankar shukla	62	mirzapur
+maurya ji	63	mirzapur
+gupta ji	64	mirzapur
+sonu	65	mirzapur
+titu	66	mirzapur
+tonu	67	mirzapur
+guddu	26	mirzapur
+bablu	27	mirzapur
+munna	28	mirzapur
+
+import pandas as pd
+name =['aman','bablu','guddu','akash','monu']
+age=[12,13,14,15,16]
+place=['jaunpur','allahabaad','varanasi','jaunpur','jaunpur']
+education = ['Btech','LLB','IPS','BA','BSC']
+college=['TCET','GIC','GCE','TDC','TDC']
+jobs =['IT','lawyer','IPS','Clerk','Sub-Registrar']
+salary=[55000,30000,100000,40000,35000]
+marks=['86%','90%','75%','92%','87%']
+postal=[400004,400005,400006,400007,400008]
+adding = list(zip(name,age,place,education,college,jobs,salary,marks,postal))
+df=pd.DataFrame(adding,columns=['name','age','place','qualifucations','college','job','salary','marks','postal'])
+df
+df.rename(columns={'name':'employee name'},inplace=True)
+df
+df.rename(columns={'age':'emp age'},inplace=True)
+df
+	employee name	emp age	place	qualifucations	college	job	salary	marks	postal
+0	aman	12	jaunpur	Btech	TCET	IT	55000	86%	400004
+1	bablu	13	allahabaad	LLB	GIC	lawyer	30000	90%	400005
+2	guddu	14	varanasi	IPS	GCE	IPS	100000	75%	400006
+3	akash	15	jaunpur	BA	TDC	Clerk	40000	92%	400007
+4	monu	16	jaunpur	BSC	TDC	Sub-Registrar	35000	87%	400008
